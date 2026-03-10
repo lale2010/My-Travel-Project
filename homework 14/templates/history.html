@@ -1,0 +1,21 @@
+<tbody>
+    {% if rows %}
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>${{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>
+                <a class="btn-small" href="{{ url_for('history_one', item_id=row[0]) }}">View</a>
+                <a class="btn-small danger" href="{{ url_for('delete_history', item_id=row[0]) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="6" style="text-align:center;">No travel history yet. Try adding a trip in Budget!</td>
+        </tr>
+    {% endif %}
+</tbody>

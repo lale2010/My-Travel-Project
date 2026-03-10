@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card" style="max-width: 700px; margin: 40px auto;">
+    <h1 style="font-weight: 800; text-align: center;">AI Trip Matcher</h1>
+    
+    <form method="POST">
+        {% for q in questions %}
+        <div style="margin-bottom: 25px;">
+            <label class="quiz-question" style="display: block; margin-bottom: 10px; font-weight: bold;">
+                {{ q.id }}. {{ q.text }}
+            </label>
+            <select name="q{{ q.id }}" class="input-box" required style="width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd;">
+                <option value="" disabled selected>Choose an option...</option>
+                {% for val, label in q.options %}
+                    <option value="{{ val }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn-main" style="width: 100%;">Find My Destination</button>
+    </form>
+
+    {% if recommendation %}
+    <div style="margin-top: 40px; padding: 30px; background: var(--primary); color: white; border-radius: 30px; text-align: center;">
+        <h2 style="font-size: 35px; margin: 0;">Target: {{ recommendation }}</h2>
+        
+        {% if weather %}
+        <div class="weather-widget" style="margin-top: 20px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+                <div style="font-size: 50px; font-weight: 800;">{{ weather.temp }}</div>
+                <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="weather icon">
+            </div>
+            <p style="font-size: 18px; margin: 10px 0;">
+                {{ weather.desc }} | Humidity: {{ weather.humidity }}% | Wind: {{ weather.wind }} m/s
+            </p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

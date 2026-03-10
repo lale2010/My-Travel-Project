@@ -1,0 +1,8 @@
+<h1>Edit Trip</h1>
+<form method="POST">
+    <p>City: <input type="text" name="city" value="{{ item[1] }}"></p>
+    <p>Days: <input type="number" name="days" value="{{ item[2] }}"></p>
+    <p>Total Cost: <input type="text" name="total_cost" value="{{ item[3] }}"></p>
+    <input type="submit" value="Save">
+</form>
+<a href="/history">Back</a>

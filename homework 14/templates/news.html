@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin-top: 50px;">
+    <h1 style="color: white; font-size: 45px; font-weight: 800; text-align: center;">World News</h1>
+    <div class="news-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        {% for n in news %}
+        <div class="card" style="padding: 0; overflow: hidden;">
+            <img src="{{ n.urlToImage if n.urlToImage else 'https://via.placeholder.com/400x250?text=No+Image' }}" class="news-img-tag" alt="News">
+            <div style="padding: 25px;">
+                <h3 style="margin-top: 0; font-size: 22px;">{{ n.title[:70] }}...</h3>
+                <p style="color: #636e72;">{{ n.description[:100] if n.description }}...</p>
+                <a href="{{ n.url }}" target="_blank" style="color: var(--primary); font-weight: 800; text-decoration: none;">Read More →</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
