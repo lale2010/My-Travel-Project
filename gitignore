@@ -1,0 +1,18 @@
+# Python кеш и байт-код
+*.pyc
+__pycache__/
+
+# Виртуальное окружение
+venv/
+
+# Файлы с секретами
+.env
+
+# SQLite журналы
+*.db-journal
+
+# Системные файлы Mac
+.DS_Store
+
+# Node.js / JavaScript зависимости (если есть)
+node_modules/
