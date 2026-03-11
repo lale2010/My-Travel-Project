@@ -131,8 +131,6 @@ def quiz():
         {"id": 4, "text": "How do you feel about crowds?",
          "options": [("A", "Love big cities"), ("B", "Prefer calm walks"), ("C", "Organized cities")]},
 
-        {"id": 5, "text": "Evening activity?",
-         "options": [("A", "Luxury dinner"), ("B", "Night walk"), ("C", "Tech show")]}
     ]
 
     recommendation = None
